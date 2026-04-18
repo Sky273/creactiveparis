@@ -7,7 +7,7 @@ $pages = [
     [
         'title'   => 'Accueil',
         'slug'    => 'accueil',
-        'content' => '<!-- wp:paragraph --><p>Page d’accueil principale du site Créactive Paris. Cette page utilise automatiquement le template premium <strong>front-page.php</strong> lorsqu’elle est définie comme page d’accueil statique dans WordPress.</p><!-- /wp:paragraph -->',
+        'content' => '<!-- wp:paragraph --><p>Créactive Paris conçoit des accessoires de salle de bain design pour l’hôtellerie, les résidences premium, les collectivités et les projets architecturaux exigeants.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Découvrez nos collections, nos univers d’usage et notre accompagnement sur les projets standards ou sur-mesure.</p><!-- /wp:paragraph -->',
     ],
     [
         'title'   => 'La marque',
@@ -22,7 +22,7 @@ $pages = [
     [
         'title'   => 'Réalisations',
         'slug'    => 'realisations',
-        'content' => '<!-- wp:paragraph --><p>Cette page permet de présenter vos références, mises en ambiance, partenaires architectes et typologies de projets. Elle constitue une excellente preuve de crédibilité pour les prospects hospitality et premium living.</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>À compléter ensuite</h3><!-- /wp:heading --><!-- wp:list --><ul><li>Photos de projets finalisés</li><li>Nom de l’établissement ou du programme</li><li>Ville / pays</li><li>Collections ou produits installés</li></ul><!-- /wp:list -->',
+        'content' => '<!-- wp:paragraph --><p>Créactive Paris accompagne des projets hôteliers, résidentiels et collectifs où la qualité perçue, la résistance à l’usage et la cohérence d’ensemble sont essentielles.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Cette page peut mettre en avant des réalisations, des références d’établissements, des partenariats avec architectes et des focus sur les produits installés.</p><!-- /wp:paragraph -->',
     ],
 ];
 

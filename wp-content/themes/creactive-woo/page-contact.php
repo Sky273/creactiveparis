@@ -15,8 +15,8 @@ $services = [
 <section class="page-hero page-hero--contact">
     <div class="container page-hero__inner">
         <p class="section-kicker">Contact</p>
-        <h1>Un point d’entrée prêt à l’emploi pour les demandes commerciales</h1>
-        <p>Cette page est pensée pour capter les demandes de devis, les questions produit et les besoins liés aux projets hospitality, résidentiels ou collectivités.</p>
+        <h1>Échangeons sur votre besoin, votre devis ou votre projet</h1>
+        <p>L’équipe Créactive Paris répond aux demandes de prescription, aux questions sur les finitions et aux besoins d’accompagnement pour l’hôtellerie, le résidentiel et les collectivités.</p>
     </div>
 </section>
 
@@ -50,7 +50,7 @@ $services = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Demandes fréquentes</p>
-            <h2>Les sujets que cette page peut absorber dès aujourd’hui</h2>
+            <h2>Les sujets sur lesquels nous pouvons vous accompagner</h2>
         </div>
         <div class="premium-card-grid premium-card-grid--four">
             <?php foreach ($services as $service) : ?>

@@ -40,6 +40,16 @@ $services = [
     ['title' => 'Sur-mesure', 'description' => 'Adaptation des dimensions, finitions et produits pour répondre au cahier des charges de chaque projet.'],
     ['title' => 'Accompagnement', 'description' => 'Support commercial et technique pour l’hôtellerie, les résidences services et les collectivités.'],
 ];
+$markets = [
+    ['title' => 'Hôtellerie', 'description' => 'Pour créer des salles de bain élégantes, cohérentes et durables dans les chambres, suites et espaces communs.'],
+    ['title' => 'Résidentiel premium', 'description' => 'Pour valoriser des programmes haut de gamme grâce à des accessoires au dessin fort et aux finitions maîtrisées.'],
+    ['title' => 'Collectivités & ERP', 'description' => 'Pour répondre aux contraintes d’usage intensif, de maintenance et d’accessibilité sans sacrifier l’esthétique.'],
+];
+$process = [
+    ['title' => '1. Cadrer le besoin', 'description' => 'Nous identifions les usages, les contraintes techniques, les finitions souhaitées et le niveau de gamme visé.'],
+    ['title' => '2. Sélectionner les références', 'description' => 'Nous proposons les collections, gammes et produits les plus pertinents pour construire une offre cohérente.'],
+    ['title' => '3. Finaliser la réponse', 'description' => 'Nous accompagnons la demande de devis, les adaptations sur-mesure et la consolidation de votre sélection finale.'],
+];
 ?>
 <section class="hero hero--premium">
     <div class="hero__media" style="background-image:url('<?php echo esc_url($hero_image); ?>');"></div>
@@ -47,21 +57,21 @@ $services = [
     <div class="container hero__grid">
         <div class="hero__copy">
             <p class="hero__eyebrow">Créactive Paris</p>
-            <h1>Un univers e-commerce plus premium pour l’accastillage de salle de bain</h1>
-            <p class="hero__lead">Un thème WooCommerce retravaillé dans un esprit éditorial, haut de gamme et contemporain, fidèle au territoire visuel de la marque et à ses collections iconiques.</p>
+            <h1>Accessoires de salle de bain design pour hôtels, résidences et collectivités</h1>
+            <p class="hero__lead">Créactive Paris conçoit des collections d’accastillage pensées pour les projets où l’élégance, la durabilité et la cohérence d’ensemble font la différence. Une offre structurée pour équiper les espaces vasque, WC, douche et PMR avec le même niveau d’exigence.</p>
             <div class="hero__actions">
                 <a class="button button--filled" href="<?php echo esc_url($shop_url); ?>">Découvrir les collections</a>
                 <a class="button button--ghost" href="<?php echo esc_url($contact_url); ?>">Parler d’un projet</a>
             </div>
         </div>
         <aside class="hero__panel">
-            <p class="hero-panel__label">Signature</p>
-            <h2>Créateur et fabricant français</h2>
-            <p>Accessoires de salle de bain originaux, robustes et éco-conçus pour l’hôtellerie, les résidences premium et les collectivités.</p>
+            <p class="hero-panel__label">Pour vos projets</p>
+            <h2>Une offre complète, du standard au sur-mesure</h2>
+            <p>Des lignes contemporaines, des finitions soignées et un accompagnement commercial pour aider architectes, prescripteurs et exploitants à composer un univers salle de bain cohérent.</p>
             <ul class="hero-panel__stats">
-                <li><strong>292</strong><span>produits importés</span></li>
-                <li><strong>11</strong><span>gammes structurées</span></li>
-                <li><strong>3</strong><span>collections principales</span></li>
+                <li><strong>292</strong><span>références pour construire votre offre</span></li>
+                <li><strong>11</strong><span>gammes pour couvrir plusieurs usages</span></li>
+                <li><strong>3</strong><span>collections pour trois positionnements</span></li>
             </ul>
         </aside>
     </div>
@@ -69,28 +79,28 @@ $services = [
 
 <section class="section section--metrics">
     <div class="container metrics-strip">
-        <article><span>Design français</span><strong>Élégance fonctionnelle</strong></article>
-        <article><span>Finitions soignées</span><strong>Bronze, doré, noir, inox</strong></article>
-        <article><span>Approche projet</span><strong>Standard & sur-mesure</strong></article>
-        <article><span>Positionnement</span><strong>Hospitality & premium living</strong></article>
+        <article><span>Design français</span><strong>Collections au style durable et identifiable</strong></article>
+        <article><span>Finitions</span><strong>Bronze, doré, noir, inox et déclinaisons coordonnées</strong></article>
+        <article><span>Approche projet</span><strong>Références catalogue et adaptations sur-mesure</strong></article>
+        <article><span>Marchés adressés</span><strong>Hôtellerie, premium living, résidences et ERP</strong></article>
     </div>
 </section>
 
 <section class="section section--story">
     <div class="container story-grid">
         <div class="story-copy">
-            <p class="section-kicker">Maison & savoir-faire</p>
-            <h2>Une direction artistique plus luxueuse, plus éditoriale, plus persuasive</h2>
-            <p>Cette nouvelle home adopte un langage visuel plus premium : surfaces profondes, typographie plus noble, grands aplats, hiérarchie renforcée et cartes produits plus sophistiquées.</p>
-            <p>Le résultat conserve l’ADN Créactive Paris tout en rapprochant l’expérience d’achat d’un site de marque haut de gamme.</p>
+            <p class="section-kicker">Entreprise & offre</p>
+            <h2>Une marque pensée pour équiper les salles de bain avec cohérence</h2>
+            <p>Créactive Paris ne vend pas seulement des pièces unitaires. La marque construit des ensembles complets capables d’unifier les zones vasque, WC, douche et accessibilité autour d’un même langage formel.</p>
+            <p>L’objectif est simple : aider les porteurs de projet à créer des espaces plus lisibles, plus élégants et plus robustes, avec un niveau de finition compatible avec les environnements premium ou intensifs.</p>
         </div>
         <div class="story-card">
-            <p class="story-card__label">Ce qui change</p>
+            <p class="story-card__label">Pourquoi choisir Créactive Paris</p>
             <ul>
-                <li>Hero immersif à double lecture marque / conversion</li>
-                <li>Collections présentées comme des univers éditoriaux</li>
-                <li>Contraste renforcé entre sections claires et sombres</li>
-                <li>Cartes produits et CTA plus premium</li>
+                <li>Une offre lisible, organisée par collections, gammes et usages</li>
+                <li>Des accessoires conçus pour durer dans le temps et à l’usage</li>
+                <li>Des finitions premium pour valoriser chaque projet</li>
+                <li>Un accompagnement pour les besoins standards ou sur-mesure</li>
             </ul>
         </div>
     </div>
@@ -101,7 +111,7 @@ $services = [
         <div class="section-heading section-heading--split">
             <div>
                 <p class="section-kicker">Nos collections</p>
-                <h2>Trois signatures pour structurer l’offre</h2>
+                <h2>Trois collections pour répondre à chaque niveau de gamme</h2>
             </div>
             <a class="text-link" href="<?php echo esc_url($shop_url); ?>">Voir tout le catalogue</a>
         </div>
@@ -124,8 +134,8 @@ $services = [
 <section class="section section--usage-premium">
     <div class="container">
         <div class="section-heading section-heading--centered">
-            <p class="section-kicker">Des produits pour chaque usage</p>
-            <h2>Une lecture plus claire du catalogue</h2>
+            <p class="section-kicker">Par zone d’usage</p>
+            <h2>Une offre conçue pour couvrir chaque moment de la salle de bain</h2>
         </div>
         <div class="usage-grid-premium">
             <?php foreach ($usages as $item) : ?>
@@ -139,12 +149,29 @@ $services = [
     </div>
 </section>
 
+<section class="section section--soft">
+    <div class="container">
+        <div class="section-heading section-heading--centered">
+            <p class="section-kicker">Marchés adressés</p>
+            <h2>Une réponse claire pour trois grands univers de prescription</h2>
+        </div>
+        <div class="premium-card-grid premium-card-grid--three">
+            <?php foreach ($markets as $market) : ?>
+                <article class="premium-card">
+                    <h3><?php echo esc_html($market['title']); ?></h3>
+                    <p><?php echo esc_html($market['description']); ?></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
 <section class="section section--featured-premium">
     <div class="container">
         <div class="section-heading section-heading--split section-heading--light">
             <div>
-                <p class="section-kicker">Nos incontournables</p>
-                <h2>Produits mis en scène pour favoriser la conversion</h2>
+                <p class="section-kicker">Sélection produits</p>
+                <h2>Quelques références pour démarrer votre prescription</h2>
             </div>
             <a class="text-link text-link--light" href="<?php echo esc_url($shop_url); ?>">Accéder à la boutique</a>
         </div>
@@ -165,7 +192,7 @@ $services = [
             </div>
         <?php else : ?>
             <div class="empty-state">
-                <p>Marquez quelques produits comme “mis en avant” après l’import WooCommerce pour enrichir cette section premium.</p>
+                <p>Ajoutez quelques références “mises en avant” pour guider immédiatement vos visiteurs vers les produits phares de votre offre.</p>
             </div>
         <?php endif; ?>
     </div>
@@ -176,7 +203,7 @@ $services = [
         <div class="craftsmanship-copy">
             <p class="section-kicker">Notre savoir-faire</p>
             <h2>Design, production, sur-mesure, accompagnement</h2>
-            <p>Le thème met mieux en valeur la promesse de la marque : un partenaire design et technique capable de livrer des pièces durables, élégantes et adaptées à des projets exigeants.</p>
+            <p>Créactive Paris accompagne les professionnels qui recherchent une offre à la fois désirable, fiable et simple à déployer. La marque associe intention décorative, solidité d’usage et capacité d’adaptation aux contraintes réelles du chantier.</p>
             <a class="button button--filled" href="<?php echo esc_url($catalogue_url); ?>" target="_blank" rel="noopener">Télécharger le catalogue</a>
         </div>
         <div class="craftsmanship-list">
@@ -190,16 +217,33 @@ $services = [
     </div>
 </section>
 
+<section class="section section--dark-band">
+    <div class="container checklist-panel">
+        <div>
+            <p class="section-kicker">Méthode commerciale</p>
+            <h2>Une approche simple pour transformer un besoin en sélection produit</h2>
+        </div>
+        <ul class="checklist-panel__list">
+            <?php foreach ($process as $step) : ?>
+                <li>
+                    <strong><?php echo esc_html($step['title']); ?></strong><br>
+                    <?php echo esc_html($step['description']); ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+
 <section class="section section--cta-premium">
     <div class="container cta-banner">
         <div>
             <p class="section-kicker">Hospitality, résidences, collectivités</p>
-            <h2>Prêt à transformer cette base en véritable boutique de marque ?</h2>
-            <p>Le thème est désormais plus premium. La prochaine étape idéale consiste à peaufiner les templates WooCommerce internes, les pages de collection et le tunnel de demande de devis.</p>
+            <h2>Parlons de votre prochain projet d’aménagement</h2>
+            <p>Besoin d’une sélection produit, d’une finition spécifique ou d’un accompagnement sur une opération complète ? L’équipe Créactive Paris vous aide à construire une réponse adaptée à votre cahier des charges.</p>
         </div>
         <div class="cta-banner__actions">
             <a class="button button--filled" href="<?php echo esc_url($contact_url); ?>">Demander un devis</a>
-            <a class="button button--outline" href="<?php echo esc_url($shop_url); ?>">Voir la boutique</a>
+            <a class="button button--outline" href="<?php echo esc_url($shop_url); ?>">Voir le catalogue</a>
         </div>
     </div>
 </section>

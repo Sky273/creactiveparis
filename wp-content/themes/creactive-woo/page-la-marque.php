@@ -54,7 +54,7 @@ $commitments = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Trois piliers</p>
-            <h2>Un discours de marque prêt à l’emploi</h2>
+            <h2>Les fondements de notre offre</h2>
         </div>
         <div class="premium-card-grid premium-card-grid--three">
             <?php foreach ($pillars as $pillar) : ?>
@@ -70,8 +70,8 @@ $commitments = [
 <section class="section section--dark-band">
     <div class="container checklist-panel">
         <div>
-            <p class="section-kicker">Ce que la page raconte</p>
-            <h2>Une base de contenu pensée pour convaincre</h2>
+            <p class="section-kicker">Nos engagements</p>
+            <h2>Une marque conçue pour les projets exigeants</h2>
         </div>
         <ul class="checklist-panel__list">
             <?php foreach ($commitments as $commitment) : ?>

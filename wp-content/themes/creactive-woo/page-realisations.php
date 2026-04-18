@@ -21,8 +21,8 @@ $projects = [
 <section class="page-hero page-hero--projects">
     <div class="container page-hero__inner">
         <p class="section-kicker">Réalisations</p>
-        <h1>Une page éditoriale pour raconter les univers de pose</h1>
-        <p>Cette page sert de vitrine inspirationnelle pour montrer comment les collections Créactive Paris s’intègrent à des environnements de prestige ou à forte exigence d’exploitation.</p>
+        <h1>Des réalisations qui inspirent et rassurent les prescripteurs</h1>
+        <p>Découvrez comment les collections Créactive Paris peuvent valoriser des chambres d’hôtel, résidences premium, établissements recevant du public et projets à contraintes spécifiques.</p>
     </div>
 </section>
 
@@ -37,9 +37,9 @@ $projects = [
         </div>
         <aside class="editorial-aside">
             <div class="info-card">
-                <p class="info-card__label">Usage conseillé</p>
-                <h2>Page parfaite pour rassurer et inspirer</h2>
-                <p>Ajoutez ensuite vos vraies références client, photos d’ambiance, architectes partenaires et fiches projet pour transformer cette base en outil commercial.</p>
+                <p class="info-card__label">Valeur ajoutée</p>
+                <h2>Des références pour projeter le visiteur dans son propre projet</h2>
+                <p>Cette page met en avant les contextes d’usage, les ambiances et les bénéfices concrets des collections afin de faciliter la projection et la prise de contact.</p>
             </div>
         </aside>
     </div>

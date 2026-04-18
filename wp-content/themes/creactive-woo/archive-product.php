@@ -3,7 +3,7 @@
     <div class="container">
         <?php woocommerce_breadcrumb(); ?>
         <h1><?php woocommerce_page_title(); ?></h1>
-        <p>Retrouvez l'ensemble du catalogue Créactive Paris dans une expérience WooCommerce moderne.</p>
+        <p>Explorez l’ensemble des collections Créactive Paris pour composer une salle de bain cohérente, durable et adaptée à votre projet.</p>
     </div>
 </section>
 <div class="container shop-shell">
