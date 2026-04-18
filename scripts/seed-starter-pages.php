@@ -24,6 +24,11 @@ $pages = [
         'slug'    => 'realisations',
         'content' => '<!-- wp:paragraph --><p>Créactive Paris accompagne des projets hôteliers, résidentiels et collectifs où la qualité perçue, la résistance à l’usage et la cohérence d’ensemble sont essentielles.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Cette page peut mettre en avant des réalisations, des références d’établissements, des partenariats avec architectes et des focus sur les produits installés.</p><!-- /wp:paragraph -->',
     ],
+    [
+        'title'   => 'Blog',
+        'slug'    => 'blog',
+        'content' => '<!-- wp:paragraph --><p>Le blog Créactive Paris permet de publier des actualités, des conseils d’aménagement, des focus produits et des contenus d’inspiration pour vos clients et prescripteurs.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Les articles classés dans la catégorie <strong>blog</strong> s’affichent automatiquement sur cette page.</p><!-- /wp:paragraph -->',
+    ],
 ];
 
 $created_ids = [];
@@ -76,8 +81,8 @@ if (! $footer_menu) {
     WP_CLI::log('Created menu: Menu footer');
 }
 
-$primary_items = ['accueil', 'la-marque', 'contact', 'realisations'];
-$footer_items  = ['la-marque', 'contact', 'realisations'];
+$primary_items = ['accueil', 'la-marque', 'realisations', 'blog', 'contact'];
+$footer_items  = ['la-marque', 'realisations', 'blog', 'contact'];
 
 $assign_menu_items = static function (WP_Term $menu, array $slugs, array $ids): void {
     $existing_items = wp_get_nav_menu_items($menu->term_id) ?: [];
@@ -107,9 +112,75 @@ $assign_menu_items = static function (WP_Term $menu, array $slugs, array $ids): 
 $assign_menu_items($primary_menu, $primary_items, $created_ids);
 $assign_menu_items($footer_menu, $footer_items, $created_ids);
 
+$categories = [
+    'realisations' => 'Réalisations',
+    'blog'         => 'Blog',
+];
+
+$category_ids = [];
+foreach ($categories as $slug => $name) {
+    $term = get_term_by('slug', $slug, 'category');
+
+    if (! $term) {
+        $term = wp_insert_term($name, 'category', ['slug' => $slug]);
+    }
+
+    if (is_wp_error($term)) {
+        WP_CLI::error(sprintf('Failed to create/update category %s: %s', $name, $term->get_error_message()));
+    }
+
+    $category_ids[$slug] = (int) (is_array($term) ? $term['term_id'] : $term->term_id);
+}
+
+$posts = [
+    [
+        'title'      => 'Projet test – Hôtel signature',
+        'slug'       => 'projet-test-hotel-signature',
+        'category'   => 'realisations',
+        'excerpt'    => 'Un article test pour vérifier la remontée automatique des réalisations.',
+        'content'    => '<!-- wp:paragraph --><p>Article de test pour la catégorie réalisations. Utilisez ce format pour publier une référence client, un chantier livré ou une mise en ambiance.</p><!-- /wp:paragraph -->',
+    ],
+    [
+        'title'      => 'Article test – Tendances salle de bain 2026',
+        'slug'       => 'article-test-tendances-salle-de-bain-2026',
+        'category'   => 'blog',
+        'excerpt'    => 'Un article test pour vérifier la remontée automatique de la page blog.',
+        'content'    => '<!-- wp:paragraph --><p>Article de test pour la catégorie blog. Utilisez ce format pour publier une actualité, un conseil ou un contenu d’inspiration.</p><!-- /wp:paragraph -->',
+    ],
+];
+
+foreach ($posts as $post_data) {
+    $existing = get_page_by_path($post_data['slug'], OBJECT, 'post');
+
+    $postarr = [
+        'post_type'     => 'post',
+        'post_title'    => $post_data['title'],
+        'post_name'     => $post_data['slug'],
+        'post_status'   => 'publish',
+        'post_excerpt'  => $post_data['excerpt'],
+        'post_content'  => $post_data['content'],
+        'post_category' => [$category_ids[$post_data['category']]],
+    ];
+
+    if ($existing instanceof WP_Post) {
+        $postarr['ID'] = $existing->ID;
+        $post_id = wp_update_post($postarr, true);
+        $action = 'updated';
+    } else {
+        $post_id = wp_insert_post($postarr, true);
+        $action = 'created';
+    }
+
+    if (is_wp_error($post_id)) {
+        WP_CLI::error(sprintf('Failed to create/update post %s: %s', $post_data['title'], $post_id->get_error_message()));
+    }
+
+    WP_CLI::log(sprintf('%s post: %s (%d)', ucfirst($action), $post_data['title'], $post_id));
+}
+
 $locations = get_theme_mod('nav_menu_locations', []);
 $locations['primary'] = (int) $primary_menu->term_id;
 $locations['footer']  = (int) $footer_menu->term_id;
 set_theme_mod('nav_menu_locations', $locations);
 
-WP_CLI::success('Starter pages, front page assignment, and menus are ready.');
+WP_CLI::success('Starter pages, menus, categories, and test posts are ready.');

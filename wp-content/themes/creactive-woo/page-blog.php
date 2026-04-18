@@ -1,12 +1,12 @@
 <?php
 get_header();
-$projects_query = function_exists('creactive_woo_category_posts_query') ? creactive_woo_category_posts_query('realisations', 9) : new WP_Query(['post_type' => 'post', 'posts_per_page' => 9]);
+$blog_query = function_exists('creactive_woo_category_posts_query') ? creactive_woo_category_posts_query('blog', 9) : new WP_Query(['post_type' => 'post', 'posts_per_page' => 9]);
 ?>
 <section class="page-hero page-hero--projects">
     <div class="container page-hero__inner">
-        <p class="section-kicker">Réalisations</p>
-        <h1>Des réalisations qui inspirent et rassurent les prescripteurs</h1>
-        <p>Retrouvez ici les articles de la catégorie réalisations pour montrer des projets, des ambiances, des références installées et des cas d’usage concrets.</p>
+        <p class="section-kicker">Blog</p>
+        <h1>Actualités, conseils et inspirations autour de l’univers Créactive Paris</h1>
+        <p>Cette page rassemble automatiquement les articles de la catégorie blog pour publier vos nouveautés, vos conseils d’aménagement et vos prises de parole de marque.</p>
     </div>
 </section>
 
@@ -22,8 +22,8 @@ $projects_query = function_exists('creactive_woo_category_posts_query') ? creact
         <aside class="editorial-aside">
             <div class="info-card">
                 <p class="info-card__label">Contenu affiché</p>
-                <h2>Les articles de la catégorie réalisations remontent automatiquement</h2>
-                <p>Chaque nouvel article classé dans la catégorie <strong>realisations</strong> apparaîtra sur cette page pour enrichir votre preuve sociale et votre discours commercial.</p>
+                <h2>Les articles de la catégorie blog alimentent cette page</h2>
+                <p>Ajoutez simplement un article dans la catégorie <strong>blog</strong> pour le faire apparaître ici et nourrir votre visibilité éditoriale.</p>
             </div>
         </aside>
     </div>
@@ -32,14 +32,14 @@ $projects_query = function_exists('creactive_woo_category_posts_query') ? creact
 <section class="section section--soft">
     <div class="container">
         <div class="section-heading section-heading--centered">
-            <p class="section-kicker">Articles récents</p>
-            <h2>Réalisations et références</h2>
+            <p class="section-kicker">Derniers articles</p>
+            <h2>Le blog de la marque</h2>
         </div>
         <?php
         if (function_exists('creactive_woo_render_editorial_post_grid')) {
             creactive_woo_render_editorial_post_grid(
-                $projects_query,
-                'Aucun article n’est encore classé dans la catégorie réalisations.'
+                $blog_query,
+                'Aucun article n’est encore classé dans la catégorie blog.'
             );
         }
         ?>

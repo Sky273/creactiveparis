@@ -59,6 +59,7 @@ function creactive_woo_menu_fallback(): void
     echo '<li><a href="' . esc_url(home_url('/boutique/')) . '">Produits</a></li>';
     echo '<li><a href="' . esc_url(home_url('/la-marque/')) . '">La marque</a></li>';
     echo '<li><a href="' . esc_url(home_url('/realisations/')) . '">Réalisations</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/blog/')) . '">Blog</a></li>';
     echo '<li><a href="' . esc_url(creactive_woo_contact_url()) . '">Contact</a></li>';
     echo '</ul>';
 }
@@ -66,6 +67,50 @@ function creactive_woo_menu_fallback(): void
 function creactive_woo_contact_url(): string
 {
     return home_url('/?page_id=7');
+}
+
+function creactive_woo_category_posts_query(string $category_slug, int $posts_per_page = 9): WP_Query
+{
+    return new WP_Query([
+        'post_type'           => 'post',
+        'post_status'         => 'publish',
+        'posts_per_page'      => $posts_per_page,
+        'ignore_sticky_posts' => true,
+        'category_name'       => $category_slug,
+    ]);
+}
+
+function creactive_woo_render_editorial_post_grid(WP_Query $query, string $empty_message): void
+{
+    if (! $query->have_posts()) {
+        echo '<div class="empty-state"><p>' . esc_html($empty_message) . '</p></div>';
+        return;
+    }
+
+    echo '<div class="editorial-post-grid">';
+
+    while ($query->have_posts()) {
+        $query->the_post();
+        $permalink = get_permalink();
+        $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+
+        echo '<article class="editorial-post-card">';
+
+        if ($thumbnail) {
+            echo '<a class="editorial-post-card__image" href="' . esc_url($permalink) . '" style="background-image:url(' . esc_url($thumbnail) . ');"></a>';
+        }
+
+        echo '<div class="editorial-post-card__content">';
+        echo '<p class="editorial-post-card__meta">' . esc_html(get_the_date('j F Y')) . '</p>';
+        echo '<h3><a href="' . esc_url($permalink) . '">' . esc_html(get_the_title()) . '</a></h3>';
+        echo '<p>' . esc_html(wp_trim_words(wp_strip_all_tags(get_the_excerpt() ?: get_the_content()), 26)) . '</p>';
+        echo '<a class="product-card__link" href="' . esc_url($permalink) . '">Lire l’article</a>';
+        echo '</div>';
+        echo '</article>';
+    }
+
+    echo '</div>';
+    wp_reset_postdata();
 }
 
 function creactive_woo_term_link(string $slug): string
