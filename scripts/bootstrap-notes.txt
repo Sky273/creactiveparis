@@ -1,0 +1,6 @@
+Commandes utiles WP-CLI après installation :
+
+wp theme activate creactive-woo
+wp option update blogname 'Créactive Paris'
+wp option update blogdescription 'Spécialiste de l'accastillage pour salles de bain'
+wp wc tool run install_pages --user=1

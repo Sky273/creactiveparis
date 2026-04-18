@@ -1,0 +1,4 @@
+Hero title: Créactive Paris
+Hero subtitle: Spécialiste de l'accastillage pour salles de bain
+Intro title: Créateur et fabricant français
+Intro subtitle: Accessoires de salle de bain originaux et éco-conçus
