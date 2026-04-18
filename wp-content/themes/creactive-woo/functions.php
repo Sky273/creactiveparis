@@ -59,8 +59,13 @@ function creactive_woo_menu_fallback(): void
     echo '<li><a href="' . esc_url(home_url('/boutique/')) . '">Produits</a></li>';
     echo '<li><a href="' . esc_url(home_url('/la-marque/')) . '">La marque</a></li>';
     echo '<li><a href="' . esc_url(home_url('/realisations/')) . '">Réalisations</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/contact/')) . '">Contact</a></li>';
+    echo '<li><a href="' . esc_url(creactive_woo_contact_url()) . '">Contact</a></li>';
     echo '</ul>';
+}
+
+function creactive_woo_contact_url(): string
+{
+    return home_url('/?page_id=7');
 }
 
 function creactive_woo_term_link(string $slug): string
@@ -134,7 +139,7 @@ function creactive_woo_quote_url(?WC_Product $product = null): string
 
     return add_query_arg(
         ['product' => rawurlencode($title)],
-        home_url('/contact/')
+        creactive_woo_contact_url()
     );
 }
 
@@ -253,7 +258,7 @@ function creactive_woo_handle_contact_form(): void
         $headers[] = 'Reply-To: ' . $email;
     }
 
-    $redirect = wp_get_referer() ?: home_url('/contact/');
+    $redirect = wp_get_referer() ?: creactive_woo_contact_url();
     $sent     = wp_mail($admin_email, $subject, $message, $headers);
 
     wp_safe_redirect(add_query_arg('contact_status', $sent ? 'success' : 'error', $redirect));

@@ -2,7 +2,7 @@
 get_header();
 $featured_products = function_exists('WC') ? creactive_woo_featured_products_query() : new WP_Query(['post_type' => 'post', 'posts_per_page' => 0]);
 $shop_url          = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/boutique/');
-$contact_url       = home_url('/contact/');
+$contact_url       = function_exists('creactive_woo_contact_url') ? creactive_woo_contact_url() : home_url('/?page_id=7');
 $catalogue_url     = 'https://www.creactive-paris.fr/wp-content/uploads/2025/03/catalogue-2025.pdf';
 $hero_image        = 'https://www.creactive-paris.fr/wp-content/uploads/2023/08/visuel-derouleur-vide-1536x640.jpg';
 $collections       = [
