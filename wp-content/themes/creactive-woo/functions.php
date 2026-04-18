@@ -113,6 +113,42 @@ function creactive_woo_render_editorial_post_grid(WP_Query $query, string $empty
     wp_reset_postdata();
 }
 
+function creactive_woo_render_editorial_post_cards_from_array(array $posts, string $empty_message): void
+{
+    $posts = array_values(array_filter($posts, static fn ($post): bool => $post instanceof WP_Post));
+
+    if ($posts === []) {
+        echo '<div class="empty-state"><p>' . esc_html($empty_message) . '</p></div>';
+        return;
+    }
+
+    echo '<div class="editorial-post-grid">';
+
+    foreach ($posts as $post) {
+        setup_postdata($post);
+
+        $permalink = get_permalink($post);
+        $thumbnail = get_the_post_thumbnail_url($post, 'large');
+
+        echo '<article class="editorial-post-card">';
+
+        if ($thumbnail) {
+            echo '<a class="editorial-post-card__image" href="' . esc_url($permalink) . '" style="background-image:url(' . esc_url($thumbnail) . ');"></a>';
+        }
+
+        echo '<div class="editorial-post-card__content">';
+        echo '<p class="editorial-post-card__meta">' . esc_html(get_the_date('j F Y', $post)) . '</p>';
+        echo '<h3><a href="' . esc_url($permalink) . '">' . esc_html(get_the_title($post)) . '</a></h3>';
+        echo '<p>' . esc_html(wp_trim_words(wp_strip_all_tags(get_the_excerpt($post) ?: $post->post_content), 26)) . '</p>';
+        echo '<a class="product-card__link" href="' . esc_url($permalink) . '">Lire l’article</a>';
+        echo '</div>';
+        echo '</article>';
+    }
+
+    echo '</div>';
+    wp_reset_postdata();
+}
+
 function creactive_woo_term_link(string $slug): string
 {
     $term = get_term_by('slug', $slug, 'product_cat');
