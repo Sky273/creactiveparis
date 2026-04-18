@@ -5,16 +5,16 @@ $project_posts = $projects_query instanceof WP_Query ? $projects_query->posts : 
 $featured_post = $project_posts[0] ?? null;
 $remaining_posts = array_slice($project_posts, 1);
 $reassurance_points = [
-    'Références hôtelières, résidentielles et ERP à forte exigence esthétique',
-    'Articles pensés pour rassurer architectes, décorateurs et prescripteurs',
-    'Mise en avant des contextes d’usage, des finitions et des bénéfices projet',
+    'Des lieux exigeants où l’esthétique, la durabilité et la cohérence comptent vraiment',
+    'Des réalisations qui permettent d’évaluer le niveau de finition et l’esprit des collections',
+    'Des exemples concrets pour imaginer plus facilement un projet comparable au vôtre',
 ];
 ?>
 <section class="page-hero page-hero--projects">
     <div class="container page-hero__inner">
         <p class="section-kicker">Réalisations</p>
         <h1>Des références concrètes pour sécuriser la décision et valoriser votre offre</h1>
-        <p>Hôtels, résidences premium, programmes résidentiels et établissements recevant du public : Créactive Paris accompagne des lieux où la qualité perçue, la robustesse et la cohérence esthétique doivent être irréprochables. Retrouvez ici des références concrètes, des ambiances installées et des solutions déjà déployées sur le terrain.</p>
+        <p>Hôtels, résidences premium, programmes résidentiels et établissements recevant du public : découvrez des références concrètes où la qualité perçue, la robustesse et la cohérence esthétique jouent un rôle décisif dans l’expérience du lieu.</p>
     </div>
 </section>
 
@@ -29,9 +29,9 @@ $reassurance_points = [
         </div>
         <aside class="editorial-aside">
             <div class="info-card">
-                <p class="info-card__label">Impact commercial</p>
-                <h2>Des références qui aident à se projeter rapidement</h2>
-                <p>Les réalisations présentées ici montrent comment les collections Créactive Paris valorisent un projet, structurent l’expérience dans la salle de bain et répondent aux contraintes de lieux exigeants.</p>
+                <p class="info-card__label">Références & crédibilité</p>
+                <h2>Des réalisations qui donnent une vision concrète du résultat</h2>
+                <p>Chaque projet aide à mesurer la présence des collections dans l’espace, la qualité des finitions et la manière dont l’ensemble contribue à l’image du lieu comme au confort d’usage.</p>
                 <ul class="editorial-bullets">
                     <?php foreach ($reassurance_points as $point) : ?>
                         <li><?php echo esc_html($point); ?></li>
@@ -46,7 +46,7 @@ $reassurance_points = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Référence à la une</p>
-            <h2>Le projet le plus récent, présenté dans son intégralité</h2>
+            <h2>La réalisation la plus récente, dans le détail</h2>
         </div>
         <?php if ($featured_post instanceof WP_Post) : ?>
             <?php
@@ -64,7 +64,7 @@ $reassurance_points = [
                         <?php echo apply_filters('the_content', $featured_post->post_content); ?>
                     </div>
                     <div class="featured-editorial-article__actions">
-                        <a class="button button--filled" href="<?php echo esc_url(creactive_woo_contact_url()); ?>">Demander un devis pour un projet similaire</a>
+                        <a class="button button--filled" href="<?php echo esc_url(creactive_woo_contact_url()); ?>">Étudier un projet similaire</a>
                         <a class="button button--outline" href="<?php echo esc_url(get_permalink($featured_post)); ?>">Ouvrir l’article</a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ $reassurance_points = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Autres contenus</p>
-            <h2>Autres réalisations, références et mises en situation</h2>
+            <h2>Autres réalisations et références à découvrir</h2>
         </div>
         <?php
         if (function_exists('creactive_woo_render_editorial_post_cards_from_array')) {
@@ -96,13 +96,13 @@ $reassurance_points = [
 <section class="section section--dark-band">
     <div class="container checklist-panel">
         <div>
-            <p class="section-kicker">Approche projet</p>
-            <h2>Montrer des projets réels, donner envie, puis déclencher le contact</h2>
+            <p class="section-kicker">Pour aller plus loin</p>
+            <h2>Vous souhaitez retrouver cette exigence sur votre propre projet ?</h2>
         </div>
         <ul class="checklist-panel__list">
-            <li><strong>Mettre en scène les lieux :</strong> hôtel, résidence premium, programme résidentiel ou ERP.</li>
-            <li><strong>Nommer les produits installés :</strong> collections, finitions, zones équipées, bénéfices d’usage.</li>
-            <li><strong>Conclure commercialement :</strong> inviter à demander une sélection produit ou un devis projet.</li>
+            <li><strong>Choisir une ambiance :</strong> contemporaine, intemporelle, premium ou adaptée à un usage intensif.</li>
+            <li><strong>Comparer les solutions :</strong> collections, finitions, équipements et zones à traiter.</li>
+            <li><strong>Passer à l’action :</strong> demander une sélection adaptée à votre établissement, résidence ou programme.</li>
         </ul>
     </div>
 </section>

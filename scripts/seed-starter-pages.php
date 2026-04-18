@@ -22,12 +22,12 @@ $pages = [
     [
         'title'   => 'Réalisations',
         'slug'    => 'realisations',
-        'content' => '<!-- wp:paragraph --><p>Créactive Paris accompagne des projets hôteliers, résidentiels et collectifs où la qualité perçue, la résistance à l’usage et la cohérence d’ensemble sont essentielles.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Cette page peut mettre en avant des réalisations, des références d’établissements, des partenariats avec architectes et des focus sur les produits installés.</p><!-- /wp:paragraph -->',
+        'content' => '<!-- wp:paragraph --><p>Créactive Paris accompagne des projets hôteliers, résidentiels et collectifs où la qualité perçue, la résistance à l’usage et la cohérence d’ensemble sont essentielles.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Retrouvez des réalisations, des ambiances livrées, des références d’établissements et des produits installés pour vous projeter plus facilement dans un projet comparable au vôtre.</p><!-- /wp:paragraph -->',
     ],
     [
         'title'   => 'Blog',
         'slug'    => 'blog',
-        'content' => '<!-- wp:paragraph --><p>Le blog Créactive Paris permet de publier des actualités, des conseils d’aménagement, des focus produits et des contenus d’inspiration pour vos clients et prescripteurs.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Les articles classés dans la catégorie <strong>blog</strong> s’affichent automatiquement sur cette page.</p><!-- /wp:paragraph -->',
+        'content' => '<!-- wp:paragraph --><p>Le blog Créactive Paris rassemble des actualités, des conseils d’aménagement, des focus produits et des contenus d’inspiration destinés aux décideurs, architectes et prescripteurs.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Vous y trouverez des repères utiles pour comparer les options, affiner vos choix et avancer plus sereinement avant une sélection produit ou une demande de devis.</p><!-- /wp:paragraph -->',
     ],
 ];
 
@@ -137,15 +137,15 @@ $posts = [
         'title'      => 'Projet test – Hôtel signature',
         'slug'       => 'projet-test-hotel-signature',
         'category'   => 'realisations',
-        'excerpt'    => 'Un article test pour vérifier la remontée automatique des réalisations.',
-        'content'    => '<!-- wp:paragraph --><p>Article de test pour la catégorie réalisations. Utilisez ce format pour publier une référence client, un chantier livré ou une mise en ambiance.</p><!-- /wp:paragraph -->',
+        'excerpt'    => 'Une première réalisation pour découvrir l’esprit d’un projet équipé par Créactive Paris.',
+        'content'    => '<!-- wp:paragraph --><p>Découvrez une première réalisation illustrant la manière dont les collections Créactive Paris peuvent structurer une salle de bain, renforcer l’identité d’un lieu et répondre à des exigences élevées en matière d’usage comme d’esthétique.</p><!-- /wp:paragraph -->',
     ],
     [
         'title'      => 'Article test – Tendances salle de bain 2026',
         'slug'       => 'article-test-tendances-salle-de-bain-2026',
         'category'   => 'blog',
-        'excerpt'    => 'Un article test pour vérifier la remontée automatique de la page blog.',
-        'content'    => '<!-- wp:paragraph --><p>Article de test pour la catégorie blog. Utilisez ce format pour publier une actualité, un conseil ou un contenu d’inspiration.</p><!-- /wp:paragraph -->',
+        'excerpt'    => 'Un premier contenu éditorial pour mieux comparer les options et nourrir la réflexion projet.',
+        'content'    => '<!-- wp:paragraph --><p>Ce premier article partage des repères utiles pour réfléchir aux finitions, à l’ambiance recherchée et au niveau d’exigence attendu dans un projet hôtelier, résidentiel ou collectif.</p><!-- /wp:paragraph -->',
     ],
 ];
 

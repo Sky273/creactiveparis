@@ -5,16 +5,16 @@ $blog_posts = $blog_query instanceof WP_Query ? $blog_query->posts : [];
 $featured_post = $blog_posts[0] ?? null;
 $remaining_posts = array_slice($blog_posts, 1);
 $blog_angles = [
-    'Actualités produits et nouvelles finitions',
-    'Conseils d’aménagement pour hôtels, résidences et collectivités',
-    'Articles utiles pour nourrir la visibilité organique et la réassurance commerciale',
+    'Nouveautés produits, finitions et collections à découvrir',
+    'Conseils d’aménagement pour hôtels, résidences et lieux recevant du public',
+    'Repères utiles pour arbitrer entre image, confort d’usage et durabilité',
 ];
 ?>
 <section class="page-hero page-hero--projects">
     <div class="container page-hero__inner">
         <p class="section-kicker">Blog</p>
-        <h1>Un blog utile pour attirer, éduquer et convertir vos futurs clients</h1>
-        <p>Nouveautés produit, conseils d’aménagement, choix de finitions, contraintes d’usage, inspirations hospitality : retrouvez ici les contenus qui aident les décideurs à mieux équiper leurs projets et à comprendre la valeur de l’offre Créactive Paris.</p>
+        <h1>Conseils, inspirations et repères pour mieux équiper vos projets</h1>
+        <p>Nouveautés produit, choix de finitions, contraintes d’usage, inspirations hospitality : retrouvez des contenus utiles pour comparer les options, affiner vos choix et avancer plus sereinement sur votre projet.</p>
     </div>
 </section>
 
@@ -29,9 +29,9 @@ $blog_angles = [
         </div>
         <aside class="editorial-aside">
             <div class="info-card">
-                <p class="info-card__label">Rôle de la page</p>
-                <h2>Des contenus utiles pour nourrir la réflexion et la décision</h2>
-                <p>Les articles publiés ici prolongent le discours commercial de la marque : ils apportent de la matière, répondent aux questions fréquentes et créent un contexte favorable à la prise de contact.</p>
+                <p class="info-card__label">Expertise & acquisition</p>
+                <h2>Des contenus pensés pour éclairer les choix les plus importants</h2>
+                <p>Matériaux, finitions, usages, image du lieu, cohérence d’ensemble : ce contenu aide à mieux comprendre les options possibles avant de définir une sélection ou de demander un accompagnement.</p>
                 <ul class="editorial-bullets">
                     <?php foreach ($blog_angles as $angle) : ?>
                         <li><?php echo esc_html($angle); ?></li>
@@ -46,7 +46,7 @@ $blog_angles = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Article à la une</p>
-            <h2>Le contenu le plus récent, affiché intégralement</h2>
+            <h2>L’article le plus récent, à lire en intégralité</h2>
         </div>
         <?php if ($featured_post instanceof WP_Post) : ?>
             <?php
@@ -64,7 +64,7 @@ $blog_angles = [
                         <?php echo apply_filters('the_content', $featured_post->post_content); ?>
                     </div>
                     <div class="featured-editorial-article__actions">
-                        <a class="button button--filled" href="<?php echo esc_url(creactive_woo_contact_url()); ?>">Parler de votre projet</a>
+                        <a class="button button--filled" href="<?php echo esc_url(creactive_woo_contact_url()); ?>">Obtenir un avis sur votre projet</a>
                         <a class="button button--outline" href="<?php echo esc_url(get_permalink($featured_post)); ?>">Ouvrir l’article</a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ $blog_angles = [
     <div class="container">
         <div class="section-heading section-heading--centered">
             <p class="section-kicker">Autres contenus</p>
-            <h2>Articles, conseils et prises de parole de la marque</h2>
+            <h2>Autres conseils et contenus à parcourir</h2>
         </div>
         <?php
         if (function_exists('creactive_woo_render_editorial_post_cards_from_array')) {
@@ -96,13 +96,13 @@ $blog_angles = [
 <section class="section section--dark-band">
     <div class="container checklist-panel">
         <div>
-            <p class="section-kicker">Orientation éditoriale</p>
-            <h2>Publier des sujets qui parlent vraiment aux décideurs</h2>
+            <p class="section-kicker">Besoin d’un accompagnement plus direct ?</p>
+            <h2>Transformez ces repères en sélection concrète pour votre projet</h2>
         </div>
         <ul class="checklist-panel__list">
-            <li><strong>Répondre à des besoins précis :</strong> choix de finition, logique d’équipement, contraintes de lieux recevant du public.</li>
-            <li><strong>Montrer la valeur de l’offre :</strong> qualité perçue, robustesse, cohérence de collection, accompagnement projet.</li>
-            <li><strong>Faire le lien avec le commerce :</strong> finir chaque article par un CTA vers la sélection produit ou la demande de devis.</li>
+            <li><strong>Préciser vos contraintes :</strong> niveau de gamme, intensité d’usage, style attendu, environnement du lieu.</li>
+            <li><strong>Comparer les solutions :</strong> finitions, équipements, collections et bénéfices d’usage.</li>
+            <li><strong>Recevoir une réponse adaptée :</strong> sélection produit, conseil d’orientation ou étude de besoin.</li>
         </ul>
     </div>
 </section>
