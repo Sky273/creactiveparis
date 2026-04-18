@@ -7,6 +7,8 @@ Ce qui est inclus :
 - une configuration Docker Compose pour WordPress + MariaDB + WP-CLI
 - un import CSV WooCommerce généré depuis le catalogue public existant
 - un mode catalogue élégant : si un produit n'a pas de prix, le site affiche `Tarif sur demande` avec un bouton `Demander un devis`
+- des pages WordPress prêtes à l'emploi avec contenu initial : `Accueil`, `La marque`, `Contact`, `Réalisations`
+- un formulaire de contact natif via shortcode `[creactive_contact_form]`
 
 ## Démarrage local
 
@@ -19,6 +21,24 @@ Ce qui est inclus :
 4. Installer et activer WooCommerce dans l'admin.
 5. Activer le thème :
    `docker compose run --rm wpcli wp theme activate creactive-woo`
+
+## Pages starter prêtes à l'emploi
+
+Après activation du thème, exécuter :
+
+`docker compose run --rm wpcli wp eval-file /opt/project-scripts/seed-starter-pages.php`
+
+Ce script :
+- crée ou met à jour les pages `Accueil`, `La marque`, `Contact`, `Réalisations`
+- affecte `Accueil` comme page d'accueil statique
+- crée les menus `Menu principal` et `Menu footer`
+- ajoute automatiquement les liens de base dans les menus
+
+Templates inclus dans le thème :
+- `front-page.php` pour l'accueil premium
+- `page-la-marque.php`
+- `page-contact.php`
+- `page-realisations.php`
 
 ## Import du catalogue
 
@@ -58,5 +78,6 @@ Puis définir :
 
 - `wp-content/themes/creactive-woo` : thème principal
 - `wp-content/mu-plugins/creactive-catalog-mode.php` : comportements catalogue/devis
+- `scripts/seed-starter-pages.php` : création automatique des pages et menus WordPress
 - `data/products-import.csv` : catalogue WooCommerce
 - `data/scraped-products.json` : données sources structurées

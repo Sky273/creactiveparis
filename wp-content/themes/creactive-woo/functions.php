@@ -58,6 +58,7 @@ function creactive_woo_menu_fallback(): void
     echo '<li><a href="' . esc_url(home_url('/')) . '">Accueil</a></li>';
     echo '<li><a href="' . esc_url(home_url('/boutique/')) . '">Produits</a></li>';
     echo '<li><a href="' . esc_url(home_url('/la-marque/')) . '">La marque</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/realisations/')) . '">Réalisations</a></li>';
     echo '<li><a href="' . esc_url(home_url('/contact/')) . '">Contact</a></li>';
     echo '</ul>';
 }
@@ -180,3 +181,83 @@ function creactive_woo_logo_markup(string $variant = 'dark'): string
 
     return '<a class="site-logo-link" href="' . esc_url(home_url('/')) . '"><img class="site-logo-image" src="' . esc_url($asset) . '" alt="Créactive Paris"></a>';
 }
+
+function creactive_woo_contact_form_shortcode(): string
+{
+    $status = isset($_GET['contact_status']) ? sanitize_text_field(wp_unslash($_GET['contact_status'])) : '';
+    $message = '';
+
+    if ($status === 'success') {
+        $message = '<p class="contact-form__notice contact-form__notice--success">Merci, votre demande a bien été envoyée.</p>';
+    } elseif ($status === 'error') {
+        $message = '<p class="contact-form__notice contact-form__notice--error">Une erreur est survenue lors de l’envoi. Merci de réessayer.</p>';
+    }
+
+    ob_start();
+    ?>
+    <div class="contact-form-block">
+        <?php echo $message; ?>
+        <form class="contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+            <input type="hidden" name="action" value="creactive_contact_form_submit">
+            <?php wp_nonce_field('creactive_contact_form'); ?>
+            <div class="contact-form__grid">
+                <label>
+                    <span>Nom</span>
+                    <input type="text" name="contact_name" required>
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="contact_email" required>
+                </label>
+                <label>
+                    <span>Téléphone</span>
+                    <input type="text" name="contact_phone">
+                </label>
+                <label>
+                    <span>Société / établissement</span>
+                    <input type="text" name="contact_company">
+                </label>
+            </div>
+            <label>
+                <span>Votre message</span>
+                <textarea name="contact_message" rows="6" required></textarea>
+            </label>
+            <button class="button button--filled" type="submit">Envoyer la demande</button>
+        </form>
+    </div>
+    <?php
+    return (string) ob_get_clean();
+}
+add_shortcode('creactive_contact_form', 'creactive_woo_contact_form_shortcode');
+
+function creactive_woo_handle_contact_form(): void
+{
+    check_admin_referer('creactive_contact_form');
+
+    $name    = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';
+    $email   = isset($_POST['contact_email']) ? sanitize_email(wp_unslash($_POST['contact_email'])) : '';
+    $phone   = isset($_POST['contact_phone']) ? sanitize_text_field(wp_unslash($_POST['contact_phone'])) : '';
+    $company = isset($_POST['contact_company']) ? sanitize_text_field(wp_unslash($_POST['contact_company'])) : '';
+    $body    = isset($_POST['contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['contact_message'])) : '';
+
+    $admin_email = (string) get_option('admin_email');
+    $subject     = sprintf('Nouvelle demande depuis le site - %s', $name ?: 'Contact');
+    $message     = "Nom : {$name}\n";
+    $message    .= "Email : {$email}\n";
+    $message    .= "Téléphone : {$phone}\n";
+    $message    .= "Société : {$company}\n\n";
+    $message    .= "Message :\n{$body}\n";
+
+    $headers = [];
+    if ($email) {
+        $headers[] = 'Reply-To: ' . $email;
+    }
+
+    $redirect = wp_get_referer() ?: home_url('/contact/');
+    $sent     = wp_mail($admin_email, $subject, $message, $headers);
+
+    wp_safe_redirect(add_query_arg('contact_status', $sent ? 'success' : 'error', $redirect));
+    exit;
+}
+add_action('admin_post_nopriv_creactive_contact_form_submit', 'creactive_woo_handle_contact_form');
+add_action('admin_post_creactive_contact_form_submit', 'creactive_woo_handle_contact_form');
